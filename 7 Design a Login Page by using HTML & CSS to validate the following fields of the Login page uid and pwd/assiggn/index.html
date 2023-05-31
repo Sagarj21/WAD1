@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login Page</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+      }
+
+      .container {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .container h2 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      .form-group label {
+        display: block;
+        font-weight: bold;
+      }
+
+      .form-group input[type="text"],
+      .form-group input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+      }
+
+      .form-group .error-message {
+        color: red;
+      }
+
+      .form-group .success-message {
+        color: green;
+      }
+
+      .form-group button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" id="username" required />
+          <div class="error-message" id="usernameError"></div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" required />
+          <div class="error-message" id="passwordError"></div>
+        </div>
+        <div class="form-group">
+          <button type="submit">Login</button>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      const loginForm = document.getElementById("loginForm");
+      const usernameInput = document.getElementById("username");
+      const passwordInput = document.getElementById("password");
+      const usernameError = document.getElementById("usernameError");
+      const passwordError = document.getElementById("passwordError");
+
+      loginForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        validateForm();
+      });
+
+      function validateForm() {
+        const username = usernameInput.value;
+        const password = passwordInput.value;
+
+        const usernamePattern =
+          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]).{8,}$/;
+        const passwordPattern =
+          /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]).{8,}$/;
+
+        if (!usernamePattern.test(username)) {
+          usernameError.textContent =
+            "Username should contain at least one uppercase letter, one lowercase letter, one special character, one number, and be at least 8 characters long.";
+        } else {
+          usernameError.textContent = "";
+        }
+
+        if (!passwordPattern.test(password)) {
+          passwordError.textContent =
+            "Password should contain at least one uppercase letter, one special character, and be at least 8 characters long.";
+        } else {
+          passwordError.textContent = "";
+        }
+      }
+    </script>
+  </body>
+</html>
