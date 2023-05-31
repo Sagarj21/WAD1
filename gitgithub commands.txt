@@ -1,0 +1,22 @@
+Sagarj21
+Sagar21202@
+
+Microsoft Windows [Version 10.0.19045.2965]
+(c) Microsoft Corporation. All rights reserved.
+
+D:\WAD\FOP\assignment-4A>git init
+Initialized empty Git repository in D:/WAD/FOP/assignment-4A/.git/
+
+D:\WAD\FOP\assignment-4A>git add .
+
+D:\WAD\FOP\assignment-4A>git commit -m "Initial commit"
+[master (root-commit) aa087c6] Initial commit
+ 3 files changed, 134 insertions(+)
+ create mode 100644 index.html
+ create mode 100644 js/api.js
+ create mode 100644 movie.html
+
+
+D:\WAD\FOP\assignment-4A>git remote add origin https://github.com/Sagarj21/git_test.git
+
+D:\WAD\FOP\assignment-4A>git push -u origin master
